@@ -59,3 +59,11 @@ void removeStruct(struct Laptop* laptop) {
     free(laptop);
     printf("Ноутбук %s удален\n", laptop -> vendor);
 }
+
+void structCopy(struct Laptop* dst, const struct Laptop* src) { 
+    strncpy(dst -> vendor, src -> vendor, N);
+    strncpy(dst -> processorModel, src -> processorModel, N);
+    dst -> hasGamingVideoChip = src -> hasGamingVideoChip;
+    dst -> displayWide = src -> displayWide;
+    dst -> price = src -> price;
+}

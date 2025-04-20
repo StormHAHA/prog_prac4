@@ -1,9 +1,8 @@
 #pragma once
 #define MY_QUEUE_H
-#include "laptop.h"
 // Описание линейного двухсвязного списка
 struct Item {
-    struct Laptop* value;
+    int value;
     struct Item* next;
     struct Item* prev;
 };

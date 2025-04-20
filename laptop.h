@@ -19,4 +19,5 @@ int structInit(struct Laptop* m, const char* vendor, const char* processorModel,
 void printStruct(const struct Laptop* m);
 struct Laptop* initDynamicStruct(const char *vendor, const char *processorModel, bool hasGamingVideoChip, float displayWide, float price);
 void removeStruct(struct Laptop* laptop);
+void structCopy(struct Laptop* dst, const struct Laptop* src);
 #endif // LAPTOP_H / др вар #pragma once

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "my_queue.h"
-#include "laptop.h"
 
 void enqueue(struct Item* queue, struct Item* toAppend) {
     if (queue == NULL || toAppend == NULL) {
@@ -42,7 +41,6 @@ void dequeue(struct Item* queue) {
     prev->next = NULL;  // Предпоследний элемент теперь последний
 
     // Освобождаем память (если value — динамический, сначала его)
-    free(current->value);
     free(current);
 }
 void deleteAll(struct Item* queue) {
@@ -53,12 +51,10 @@ void deleteAll(struct Item* queue) {
     struct Item* leftPtr = queue;
     struct Item* rightPtr = queue -> next;
     while(rightPtr -> next != NULL) {
-        free(rightPtr -> value);
         leftPtr = rightPtr;
         rightPtr = rightPtr -> next;
         free(leftPtr);
     }
-    free(rightPtr -> value);
     free(rightPtr);
     queue -> next = NULL;
     printf("Выполнена очистка очереди");
@@ -73,7 +69,7 @@ void printQueue(struct Item* queue) {
 
     while(pointer -> next != NULL) {
         pointer = pointer -> next;
-        printStruct(pointer -> value);
+        printf("%d", pointer -> value);
         printf("\n");
     }
 }
