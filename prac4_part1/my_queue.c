@@ -44,25 +44,26 @@ void dequeue(struct Item* queue) {
     free(current);
 }
 void deleteAll(struct Item* queue) {
-    if (queue == NULL || queue -> next == NULL) {
-        printf("ОШИБКА!\n");
+    if (queue == NULL) {
+        printf("ОШИБКА: Передан NULL!\n");
         return;
     }
-    struct Item* leftPtr = queue;
-    struct Item* rightPtr = queue -> next;
-    while(rightPtr -> next != NULL) {
-        leftPtr = rightPtr;
-        rightPtr = rightPtr -> next;
-        free(leftPtr);
+
+    struct Item* current = queue->next; 
+    while (current != NULL) {
+        struct Item* next = current->next; 
+        free(current);                     
+        current = next;
     }
-    free(rightPtr);
-    queue -> next = NULL;
+
+    queue->next = NULL; // Теперь список пуст
     printf("Выполнена очистка очереди");
+
 }
 
 void printQueue(struct Item* queue) { 
     if (queue == NULL) {
-        printf("Ошибка: передан NULL укащатель\n");
+        printf("Ошибка: передан NULL указатель\n");
         return;
     }
     struct Item* pointer = queue;

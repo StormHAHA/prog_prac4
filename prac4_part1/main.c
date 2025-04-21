@@ -5,8 +5,13 @@
 
 int main() {
 
+    // Создание очереди
     struct Item* queue = (struct Item*)malloc(sizeof(struct Item));
     queue -> next = NULL;
+    queue -> prev = NULL;
+
+    // Создание экземпляров списка для добавления их в очередь
+
     struct Item* queueElem_1 = (struct Item*)malloc(sizeof(struct Item));
     queueElem_1 -> value = 1;
     queueElem_1 -> next = NULL;
@@ -24,22 +29,22 @@ int main() {
     queueElem_4 -> next = NULL;
     queueElem_4 -> prev = NULL;
 
+    // Добавление элементов списка в очередь
     enqueue(queue, queueElem_1);
     enqueue(queue, queueElem_2);
     enqueue(queue, queueElem_3);
     enqueue(queue, queueElem_4);
+
+    // Вывод очереди
     printQueue(queue);
+
+
     dequeue(queue);
-    printf("\nDequeue\n");
+    dequeue(queue);
+    dequeue(queue);
+    printf("\n========Dequeue 3 times========\n");
     printQueue(queue);
-    dequeue(queue);
-    printf("\nDequeue\n");
-    printQueue(queue);
-    dequeue(queue);
-    printf("\nDequeue\n");
-    printQueue(queue);
-    dequeue(queue);
-    printf("\nDequeue\n");
+    deleteAll(queue);
     printQueue(queue);
     return 0;
 }

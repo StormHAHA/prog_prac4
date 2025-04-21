@@ -3,9 +3,9 @@
 #include "laptop.h"
 // Описание линейного двухсвязного списка
 struct Item {
-    struct Laptop* value;
-    struct Item* next;
-    struct Item* prev;
+    struct Laptop* value;   //Значение узла списка 
+    struct Item* next;      //Указатель на следующий узел списка
+    struct Item* prev;      //Указатель на предыдущий узел списка
 };
 
 void enqueue(struct Item* queue, struct Item* toAppend);
